@@ -39,6 +39,6 @@ def test_u():
     plt.legend(["Numeric", "Exact"])
     plt.xlabel("x")
     plt.ylabel("v(x)")
-    plt.title("v(x) for n = 10")
+    plt.title("v(x) for n = 1000")
     plt.show()
 test_u()

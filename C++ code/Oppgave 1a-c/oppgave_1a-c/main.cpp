@@ -9,44 +9,42 @@ using namespace std;
 int main(){
   ofstream outputFile;
   outputFile.open("oppgave_1d.txt");
-  int n = 1e5;
+  int n;
+  n = 1000;
   double h, L;
-  double *a, *u, *v, *f, *ft,;
+  double *a, *u, *v, *f, *ft;
   a = new double[n+2];
   f = new double[n+2];   u = new double[n+2];
-  ft = new double[n+2];
-  v = new double[n+2];
+  ft = new double[n+2];  v = new double[n+2];
   L = 1.0;
   h = L/(n+1.0);
-  //a[0] = 2.0;
-
   u[0] = 0;
-
+cout <<  L << endl;
  for (int i = 0; i < n+2; i++)
  {
       f[i] = 100*exp (-10*i*h)*h*h;
       v[i] = 1 - (1 - exp (-10))*i*h - exp (-10*i*h);
       a[i] = 2.0;
+      a[i] = 2.0 - 1./(a[i-1]);
  }
- clock_t start, finish;
- start = clock();
  ft[1] = f[1];
  for (int i = 2; i < n+1; i++)
     {
-      a[i] = 2.0 - 1./(a[i-1]);
       ft[i] = f[i] + ft[i-1]/a[i-1];
     }
-    u[n] = ft[n]/a[n];
+  u[n] = ft[n]/a[n];
   for (int i = (n-1); i >= 1; i = i-1)
     {
+      cout << i << endl;
       u[i] = (ft[i] + u[i+1])/a[i];
     }
   for (int i = 0; i < n+2; i++)
-     {
+  {
+      cout << u[i] << endl;
       outputFile << setiosflags(ios::showpoint | ios::uppercase);
       outputFile << setprecision(10) << setw(20) << u[i] << endl;
   }
-  delete [] a;   delete [] f;
-  delete [] u;
-  return 0;
+ delete [] a;   delete [] f;
+ delete [] u;
+return 0;
 }
