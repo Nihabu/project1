@@ -19,7 +19,6 @@ int main(){
   L = 1.0;
   h = L/(n+1.0);
   u[0] = 0;
-cout <<  L << endl;
  for (int i = 0; i < n+2; i++)
  {
       f[i] = 100*exp (-10*i*h)*h*h;
@@ -35,12 +34,10 @@ cout <<  L << endl;
   u[n] = ft[n]/a[n];
   for (int i = (n-1); i >= 1; i = i-1)
     {
-      cout << i << endl;
       u[i] = (ft[i] + u[i+1])/a[i];
     }
   for (int i = 0; i < n+2; i++)
   {
-      cout << u[i] << endl;
       outputFile << setiosflags(ios::showpoint | ios::uppercase);
       outputFile << setprecision(10) << setw(20) << u[i] << endl;
   }
