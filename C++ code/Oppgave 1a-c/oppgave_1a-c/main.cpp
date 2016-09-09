@@ -22,7 +22,6 @@ int main(){
  for (int i = 0; i < n+2; i++)
  {
       f[i] = 100*exp (-10*i*h)*h*h;
-      v[i] = 1 - (1 - exp (-10))*i*h - exp (-10*i*h);
       a[i] = 2.0;
       a[i] = 2.0 - 1./(a[i-1]);
  }

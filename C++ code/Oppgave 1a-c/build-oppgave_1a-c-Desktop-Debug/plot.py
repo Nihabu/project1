@@ -1,9 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def test_error():
-    infile = open("oppgave_1d.txt", "r")
-    Error = []
+def test_error()q
     points = 0
     for line in infile:
         words = line.split()
