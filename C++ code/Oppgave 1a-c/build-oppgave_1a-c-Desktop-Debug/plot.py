@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def test_error()q
+def test_error():
     points = 0
     for line in infile:
         words = line.split()
