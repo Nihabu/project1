@@ -8,7 +8,8 @@ using namespace std;
 
 int main(){
   ofstream outputFile;
-  outputFile.open("oppgave_1d.txt");
+  outputFile.open("oppgave_1d.txt");   //create new file
+  //declare pointers and define variables
   int n;
   n = 1000;
   double h, L;
