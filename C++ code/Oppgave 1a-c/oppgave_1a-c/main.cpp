@@ -11,7 +11,7 @@ int main(){
   outputFile.open("oppgave_1d.txt");   //create new file
   //declare pointers and define variables
   int n;
-  n = 1000;
+  n = 100;
   double h, L;
   double *a, *u, *v, *f, *ft;
   a = new double[n+2];
@@ -20,6 +20,7 @@ int main(){
   L = 1.0;
   h = L/(n+1.0);
   u[0] = 0;
+  
  for (int i = 0; i < n+2; i++)
  {
       f[i] = 100*exp (-10*i*h)*h*h;
@@ -27,6 +28,7 @@ int main(){
       a[i] = 2.0 - 1./(a[i-1]);
  }
  ft[1] = f[1];
+ 
  for (int i = 2; i < n+1; i++)
     {
       ft[i] = f[i] + ft[i-1]/a[i-1];
