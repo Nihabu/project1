@@ -17,20 +17,33 @@ int main(){
   a = new double[n+2];
   f = new double[n+2];   u = new double[n+2];
   ft = new double[n+2];  v = new double[n+2];
+<<<<<<< HEAD
   L = 1.0;          //length of x-array
   h = L/(n+1.0);    //steplength
   u[0] = 0;         //discretized approx. to exact solution v
   
  //for-loop runs from 0 to n+2 with steplengths 1
+=======
+  L = 1.0;
+  h = L/(n+1.0);
+  u[0] = 0;
+  
+>>>>>>> c92ce920b75dc55bbd50da3c8efd3d5cb5b063c9
  for (int i = 0; i < n+2; i++)
  {
       f[i] = 100*exp (-10*i*h)*h*h; //source term
       a[i] = 2.0;
       a[i] = 2.0 - 1./(a[i-1]);     //the elements on the diagonal in our matrix
  }
+<<<<<<< HEAD
  ft[1] = f[1];     //define first element of f-tilde
  
  for (int i = 2; i < n+1; i++)  //loop runs from 2 -> n+1
+=======
+ ft[1] = f[1];
+ 
+ for (int i = 2; i < n+1; i++)
+>>>>>>> c92ce920b75dc55bbd50da3c8efd3d5cb5b063c9
     {
       ft[i] = f[i] + ft[i-1]/a[i-1]; //calculate f-tilde values
     }
