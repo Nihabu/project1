@@ -37,6 +37,7 @@ DISTDIR = /home/erik/FYS3150/project1/C++\ code/oppgave_1e/build-Oppgave_1e-Desk
 LINK          = g++
 LFLAGS        = -m64
 LIBS          = $(SUBLIBS)  
+LIBS += -larmadillo -llapack -lblas
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
