@@ -12,7 +12,7 @@ for line in infile1:
     words = line.split()
     x1.append(float(words[0]))
 x1 = x1[1:len(x1)-1]
-
+print len(x1)
 """
 This loop gives the solution for x from assignment e
 """

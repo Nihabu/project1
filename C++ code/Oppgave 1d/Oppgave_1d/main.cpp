@@ -11,8 +11,9 @@ int main(){
   outputFile.open("oppgave_1d.txt");
 
 
-  for (int n = 10; n <= 1000; n= n*10)
-  {
+  //for (int n = 10; n <= 100; n= n*10)
+  //{
+  int n = 100;
   cout << n << endl;
   double h, L, max_error;
   double *a, *u, *v, *f, *ft, *error;
@@ -55,15 +56,15 @@ int main(){
   sec = (finish - start);
   cout << sec/CLOCKS_PER_SEC << endl;
   //cout << max_error << endl;
- // for (int i = 0; i < n+2; i++)
- //    {
- //     outputFile << setiosflags(ios::showpoint | ios::uppercase);
- //outputFile << setprecision(10) << setw(20) << max_error << endl;
-  //}
+  for (int i = 0; i < n+2; i++)
+     {
+      outputFile << setiosflags(ios::showpoint | ios::uppercase);
+      outputFile << setprecision(10) << setw(20) << max_error << endl;
+  }
  delete [] a;   delete [] f;
  delete [] u;
 
- }
+ //}
   outputFile.close();
   return 0;
 }

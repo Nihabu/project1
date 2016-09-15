@@ -12,7 +12,7 @@ int main()
     outputFile.open("oppgave_1e.txt");
 
     int n, Length;
-    n = 10;
+    n = 1000;
     Length = 1;
     mat L, U;
     mat A = zeros<mat>(n, n);
@@ -61,17 +61,17 @@ int main()
     for (int i = n-2; i>=0; i--)
     {
         x(i) = (y(i) + x(i+1))/U(i, i);
-      /*error =(abs((x(i) - u(i))/u(i)));
+        double error =(abs((x(i) - u(i))/u(i)));
         if (error > max_error)
         {
         max_error = error;
-        }*/
+        }
     }
     finish = clock();
     double sec;
     sec = (finish - start);
-    cout << sec/CLOCKS_PER_SEC << endl;
-    //cout << max_error << endl;
+    //cout << sec/CLOCKS_PER_SEC << endl;
+    cout << max_error << endl;
     for (int i = 0; i < n; i++)
     {
         outputFile << setiosflags(ios::showpoint | ios::uppercase);

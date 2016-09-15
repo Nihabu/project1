@@ -10,7 +10,7 @@ int main(){
   ofstream outputFile;
   outputFile.open("oppgave_1d.txt");
   int n;
-  n = 10;
+  n = 100;
   double h, L;
   double *a, *u, *v, *f, *ft;
   a = new double[n+2];
