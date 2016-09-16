@@ -8,9 +8,10 @@ using namespace std;
 using namespace arma;
 int main()
 {
-    ofstream outputFile;
+    ofstream outputFile;    //create new file
     outputFile.open("oppgave_1e.txt");
 
+    //declaring variables and armadillo matrices and vectors
     int n, Length;
     n = 1000;
     Length = 1;
@@ -22,12 +23,14 @@ int main()
 
     double h, max_error;
     vec u = zeros(n);
-    h = Length/(n+1.0);
+    h = Length/(n+1.0); //steplength
+    //setting boundary values
     A(0, 0) = 2;
     A(0, 1) = -1;
     A(n-1, n-1) = 2;
     A(n-1, n-2) = -1;
     b(0) = 100*exp (-10*(1)*h)*h*h;
+    //loop creating matrix
     for (int i = 1; i < n-1; i++)
     {
         b(i) = 100*exp (-10*(i+1)*h)*h*h;
@@ -35,15 +38,16 @@ int main()
         A(i, i+1) = -1;
         A(i, i-1) = -1;
     }
+    //calculating nalytical solution
     for (int i = 0; i < n; i++)
     {
         u(i) = 1 - (1 - exp(-10))*(i+1)*h - exp(-10*(i+1)*h);
     }
-    lu(L, U, A);
+    lu(L, U, A); //setting up lu-function from arma-library
 
     y(0) = b(0);
-    clock_t start, finish;
-    start = clock();
+    clock_t start, finish; //rewind clock
+    start = clock(); //start clock
     /*
     Forward substitution with a total of 2N FLOPS for this spesific problem
     */
@@ -61,17 +65,18 @@ int main()
     for (int i = n-2; i>=0; i--)
     {
         x(i) = (y(i) + x(i+1))/U(i, i);
-        double error =(abs((x(i) - u(i))/u(i)));
+        double error =(abs((x(i) - u(i))/u(i))); //relative error
         if (error > max_error)
         {
-        max_error = error;
+        max_error = error; //set error to always be maximum error
         }
     }
-    finish = clock();
+    finish = clock(); //press stop
     double sec;
-    sec = (finish - start);
-    //cout << sec/CLOCKS_PER_SEC << endl;
+    sec = (finish - start); //no. of clocks_per_sec
+    //cout << sec/CLOCKS_PER_SEC << endl; //print seconds used
     cout << max_error << endl;
+    //write to file
     for (int i = 0; i < n; i++)
     {
         outputFile << setiosflags(ios::showpoint | ios::uppercase);
